@@ -1,17 +1,18 @@
 <?php
 
-// TODO: add namespace
+namespace rocketfellows\ITVatNumberFormatValidatorsConfig\tests\unit;
 
 use arslanimamutdinov\ISOStandard3166\ISO3166;
 use PHPUnit\Framework\TestCase;
 use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidatorInterface;
 use rocketfellows\CountryVatFormatValidatorInterface\CountryVatFormatValidators;
 use rocketfellows\CountryVatNumberFormatValidatorsConfig\CountryVatNumberFormatValidatorsConfigInterface;
+use rocketfellows\ITVatFormatValidator\ITVatFormatValidator;
 
-class CountryVatNumberFormatValidatorsConfigTest extends TestCase
+class ITVatNumberFormatValidatorsConfigTest extends TestCase
 {
-    private const TESTING_CONFIG_CLASS = CountryVatNumberFormatValidatorsConfig::class;
-    private const EXPECTED_CONFIG_DEFAULT_VALIDATOR_CLASS = CountryVatFormatValidator::class;
+    private const TESTING_CONFIG_CLASS = ITVatNumberFormatValidatorsConfig::class;
+    private const EXPECTED_CONFIG_DEFAULT_VALIDATOR_CLASS = ITVatFormatValidator::class;
 
     public function testOverrideConfigurationDefaultValidator(): void
     {
@@ -139,7 +140,7 @@ class CountryVatNumberFormatValidatorsConfigTest extends TestCase
 
     private function assertExpectedConfigCountry(CountryVatNumberFormatValidatorsConfigInterface $config): void
     {
-        $this->assertEquals(ISO3166::COUNTRY(), $config->getCountry());
+        $this->assertEquals(ISO3166::IT(), $config->getCountry());
     }
 
     private function getDefaultConfigValidator(): CountryVatFormatValidatorInterface
